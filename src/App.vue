@@ -1,28 +1,77 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <export-excel :data="jsonDatam" fields="jsonProperties" :name="excel_name" :worksheet="work_sheet_name">
+      Vuejs Vue Excel #2
+    </export-excel>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      work_sheet_name: "Kullanici Calis",
+      excel_name:"Kullanicilar",
+      jsonProperties: {
+        "Kullanici Numarasi": "id",
+        "Kullanici Adin": "name",
+        "Kullanici Soyadi": "surname",
+        "Kullanci Yasi": "age",
+        "Kullanici EV Telefonu": "phone.home",
+        "Kullanci IS Telefonu": "phone.work",
+        "Dogum Tarini": "birthDate",
+      },
+      jsonDatam:[
+        {
+          id: 1,
+          name: "Yasin",
+          surname: "Dalkilic",
+          age: 30,
+          phone: {
+            home: "4938373838",
+            work: "4949478909"
+          },
+          birtDate: new Date(),
+        },
+        {
+          id: 2,
+          name: "Ahnet",
+          surname: "Dalkilic",
+          age: 30,
+          phone: {
+            home: "4938373838",
+            work: "4949478909"
+          },
+          birtDate: new Date(),
+        },
+        {
+          id: 3,
+          name: "Selin",
+          surname: "Dalkilic",
+          age: 30,
+          phone: {
+            home: "4938373838",
+            work: "4949478909"
+          },
+          birtDate: new Date(),
+        }
+      ]
+    }
   }
 }
+
 </script>
+
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
